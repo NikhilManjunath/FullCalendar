@@ -1,0 +1,1 @@
+Timeline view can be used to represent resources

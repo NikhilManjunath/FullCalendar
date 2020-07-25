@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sizing Demo</title>
+  <link href='../lib/main.css' rel='stylesheet' />
+  <script src='../lib/main.js'></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var calendarEl = document.getElementById('calendar');
+      var calendar = new FullCalendar.Calendar(calendarEl, { //initialzing globals
+        schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
+        initialView: 'dayGridMonth',
+        height: 'auto',  //sticky header dates will be activated
+        contentHeight: 600,
+        aspectRatio: 2,
+        // expandRows: true   //If the rows of a given view don’t take up the entire height, they will expand to fit.
+        // handleWindowResize: true  //default tur i,e. automatically resize the calendar when the browser window resizes.
+        // windowResizeDelay: 100  //calendar will wait to adjust its size after a window resize occurs, in milliseconds.
+      });
+      calendar.render();
+    });
+  </script>
+  <style>
+    body {
+      /* margin: 40px 10px; */
+      padding: 0;
+      font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+      font-size: 14px;
+    }
+  
+    #calendar {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .demo-topbar {
+      height: 40px;
+      line-height: 40px;
+      padding-left: 1em;
+      background: #eee;
+      border-bottom: 1px solid #ddd;
+      font-family: Lucida Grande,Helvetica,Arial,Verdana,sans-serif!important;
+      font-size: 14px!important;
+      color: #000!important;
+      margin-bottom: 1rem;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="demo-topbar">Calendar Sizing Demo</div>
+  <div id="calendar"></div>
+</body>
+</html>

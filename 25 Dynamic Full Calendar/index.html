@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Full Calendar</title>
+  <link href='https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.css' rel='stylesheet' />
+  <link href='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.1/css/all.css' rel='stylesheet'>
+  <link href='../lib/main.css' rel='stylesheet' />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tooltip.js/1.3.3/tooltip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.4/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script src='../lib/main.js'></script>
+  <script src='../lib/moment.min.js'></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var calendarEl = document.getElementById('calendar');
+      var calendar = new FullCalendar.Calendar(calendarEl, { 
+        //Initialization
+        schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
+        initialView: 'timeGridDay',
+
+        //Bootstrap Theming
+        themeSystem: 'bootstrap',
+
+        //Toolbar
+        headerToolbar: {
+          left: 'prev,next today',  
+          center: 'title',  
+          right: 'dayGridMonth,timeGridWeek,timeGridDay'  
+        },
+
+        //Date Formatting
+        titleFormat: {
+          month: 'short',
+          year: 'numeric',
+          day: 'numeric',
+        },
+
+        //Views
+        views: { 
+          //month view
+          dayGridMonth: {
+            fixedWeekCount: false,  //If true, all months show 6 weeks
+          },
+          //timegrid view
+          timeGridWeek: {
+            slotEventOverlap: true,  //Allows events to overlap in time
+          }
+        },
+
+        //Sticky Headers
+        stickyHeaderDates: true,
+
+        //Date Navigation
+        navLinks:true, 
+        weekNumbers:true,
+
+        //Date Selection
+        selectable:true,
+        selectMirror:true, 
+        unselectAuto:false, 
+        
+        //Date and Time Display
+        nowIndicator:true,
+
+        //Events
+        editable: true,
+
+        events: [
+          {
+            title: 'Mr.Holmes',
+            start: '2020-07-27T09:00:00',
+            end: '2020-07-27T10:00:00',
+            id: 'JP001',
+            backgroundColor: '#4CA3DD',
+          },
+          {
+            title: 'Mr.Watson',
+            start: '2020-07-27T10:30:00',
+            end: '2020-07-27T12:00:00',
+            id: 'JP002',
+            backgroundColor: '#4CA3DD',
+          },
+          {
+            title: 'Free Slot',
+            start: '2020-07-27T14:00:00',
+            end: '2020-07-27T16:30:00',
+            id: 'JP003',
+            backgroundColor: '#4CA3DD'
+          },
+          {
+            title: 'Mrs.Rose',
+            start: '2020-07-27T17:00:00',
+            end: '2020-07-27T18:00:00',
+            id: 'JP004',
+            backgroundColor: '#4CA3DD'
+          },
+          {
+            title: 'George Lucas',
+            start: '2020-07-27T18:00:00',
+            end: '2020-07-27T19:30:00',
+            backgroundColor: '#4CA3DD',
+            id: 'JP005',
+          },
+          {
+            title: 'Bilbo',
+            start: '2020-07-27T09:00:00',
+            end: '2020-07-27T10:00:00',
+            id: 'JP006',
+            backgroundColor: '#FF6347',
+          },
+          {
+            title: 'Greg',
+            start: '2020-07-27T10:30:00',
+            end: '2020-07-27T12:00:00',
+            id: 'JP007',
+            backgroundColor: '#FF6347',
+          },
+          {
+            title: 'Rodrick',
+            start: '2020-07-27T14:00:00',
+            end: '2020-07-27T16:30:00',
+            id: 'JP008',
+            backgroundColor: '#FF6347'
+          },
+          {
+            title: 'Free Slot',
+            start: '2020-07-27T17:00:00',
+            end: '2020-07-27T18:00:00',
+            id: 'JP009',
+            backgroundColor: '#4CA3DD'
+          },
+          {
+            title: 'Free Slot',
+            start: '2020-07-27T18:00:00',
+            end: '2020-07-27T19:30:00',
+            backgroundColor: '#4CA3DD',
+            id: 'JP010',
+          },
+          {
+            title: 'Free Slot',
+            start: '2020-07-29T09:00:00',
+            end: '2020-07-29T10:00:00',
+            id: 'JP011',
+            backgroundColor: '#4CA3DD',
+          },
+          {
+            title: 'Free Slot',
+            start: '2020-07-29T10:30:00',
+            end: '2020-07-29T12:00:00',
+            id: 'JP012',
+            backgroundColor: '#4CA3DD',
+          },
+          {
+            title: 'Ms.Kelly',
+            start: '2020-07-29T14:00:00',
+            end: '2020-07-29T16:30:00',
+            id: 'JP013',
+            backgroundColor: '#4CA3DD'
+          },
+          {
+            title: 'Mr.Heffley',
+            start: '2020-07-29T17:00:00',
+            end: '2020-07-29T18:00:00',
+            id: 'JP014',
+            backgroundColor: '#4CA3DD'
+          },
+          {
+            title: 'Graham',
+            start: '2020-07-29T18:00:00',
+            end: '2020-07-29T19:30:00',
+            backgroundColor: '#4CA3DD',
+            id: 'JP015',
+          },
+          {
+            title: 'Amy',
+            start: '2020-07-29T09:00:00',
+            end: '2020-07-29T10:00:00',
+            id: 'JP016',
+            backgroundColor: '#FF6347',
+          },
+          {
+            title: 'Winston',
+            start: '2020-07-29T10:30:00',
+            end: '2020-07-29T12:00:00',
+            id: 'JP017',
+            backgroundColor: '#FF6347',
+          },
+          {
+            title: 'Free Slot',
+            start: '2020-07-29T14:00:00',
+            end: '2020-07-29T16:30:00',
+            id: 'JP018',
+            backgroundColor: '#FF6347'
+          },
+          {
+            title: 'Free Slot',
+            start: '2020-07-29T17:00:00',
+            end: '2020-07-29T18:00:00',
+            id: 'JP019',
+            backgroundColor: '#FF6347'
+          },
+          {
+            title: 'Miachel',
+            start: '2020-07-29T18:00:00',
+            end: '2020-07-29T19:30:00',
+            backgroundColor: '#FF6347',
+            id: 'JP020',
+          },
+          {
+            title: 'Free Slot',
+            start: '2020-07-28T09:00:00',
+            end: '2020-07-28T10:00:00',
+            id: 'JP021',
+            backgroundColor: '#B371C7',
+          },
+          {
+            title: 'Mr.Morley',
+            start: '2020-07-28T10:30:00',
+            end: '2020-07-28T12:00:00',
+            id: 'JP022',
+            backgroundColor: '#B371C7',
+          },
+          {
+            title: 'Mr.Kelly',
+            start: '2020-07-28T14:00:00',
+            end: '2020-07-28T16:30:00',
+            id: 'JP023',
+            backgroundColor: '#B371C7'
+          },
+          {
+            title: 'Free Slot',
+            start: '2020-07-28T17:00:00',
+            end: '2020-07-28T18:00:00',
+            id: 'JP024',
+            backgroundColor: '#B371C7'
+          },
+          {
+            title: 'Roman',
+            start: '2020-07-28T18:00:00',
+            end: '2020-07-28T19:30:00',
+            backgroundColor: '#B371C7',
+            id: 'JP025',
+          },
+          {
+            title: 'Mrs.Keys',
+            start: '2020-07-28T09:00:00',
+            end: '2020-07-28T10:00:00',
+            id: 'JP026',
+            backgroundColor: '#40EC91',
+          },
+          {
+            title: 'Free Slot',
+            start: '2020-07-28T10:30:00',
+            end: '2020-07-28T12:00:00',
+            id: 'JP027',
+            backgroundColor: '#40EC91',
+          },
+          {
+            title: 'Mr>Marshall',
+            start: '2020-07-28T14:00:00',
+            end: '2020-07-28T16:30:00',
+            id: 'JP028',
+            backgroundColor: '#40EC91'
+          },
+          {
+            title: '50 Cent',
+            start: '2020-07-28T17:00:00',
+            end: '2020-07-28T18:00:00',
+            id: 'JP029',
+            backgroundColor: '#40EC91'
+          },
+          {
+            title: 'Mrs.Swift',
+            start: '2020-07-28T18:00:00',
+            end: '2020-07-28T19:30:00',
+            backgroundColor: '#40EC91',
+            id: 'JP030',
+          },
+        ],
+        dayMaxEventRows:4,
+
+        //Adding Events Through Date
+        dateClick: function(info) {
+          var dates = new Date(info.dateStr);
+          var date = dates.getDate().toString().padStart(2, "0");
+          var month = dates.getMonth() + 1;
+          var months = month.toString().padStart(2, "0");
+          var year = dates.getFullYear();
+          document.getElementById("title").value = "New Event";
+          document.getElementById("id").value = "(000-100)";
+          document.getElementById("eventDate").value = year + "-" + months + "-" + date;
+          document.getElementById("start").value = "T00:00:00";
+          document.getElementById("end").value = "T00:00:00";
+        },
+
+        //Adding Events to the form
+        eventClick: function(info) {
+          var event = calendar.getEventById(info.event.id);
+          var appoint = info.event.title;
+          var identity = info.event.id;
+          var date = info.event.start.getDate().toString().padStart(2, "0");
+          var month = info.event.start.getMonth() + 1;
+          var months = month.toString().padStart(2, "0");
+          var year = info.event.start.getFullYear();
+          var hourStart = info.event.start.getHours().toString().padStart(2, "0");
+          var minuteStart = info.event.start.getMinutes().toString().padStart(2, "0");
+          var secondStart = info.event.start.getSeconds().toString().padStart(2, "0");
+          var hourEnd = info.event.end.getHours().toString().padStart(2, "0");
+          var minuteEnd = info.event.end.getMinutes().toString().padStart(2, "0");
+          var secondEnd = info.event.end.getSeconds().toString().padStart(2, "0");
+          document.getElementById("title").value = appoint;
+          document.getElementById("id").value = identity;
+          document.getElementById("eventDate").value = year + "-" + months + "-" + date;
+          document.getElementById("start").value = "T" + hourStart + ":" + minuteStart + ":" + secondStart;
+          document.getElementById("end").value = "T" + hourEnd + ":" + minuteEnd + ":" + secondEnd;
+          $("#submit").click(function() {
+            event.remove();
+          });
+        },
+      });
+
+      //Removing Events through buttons
+      $("#btn-remove").click(function(){
+        var id = prompt("Enter Event ID:");
+        var event = calendar.getEventById(id);
+        event.remove();
+      })
+
+      //Adding events through a Form
+      $("#submit").click(function(){
+        var appoint = document.getElementById("title").value;
+        var identity = document.getElementById("id").value;
+        var dateStr = document.getElementById("eventDate").value;
+        var startStr = document.getElementById("start").value;
+        console.log(startStr);
+        var endStr = document.getElementById("end").value;
+        var date = new Date(dateStr);
+        var date_start = new Date(dateStr + startStr);
+        var date_end = new Date(dateStr + endStr);
+
+        if (!isNaN(date.valueOf())) { 
+          calendar.addEvent({
+            title: appoint,
+            id: identity,
+            start: date_start,
+            end: date_end,
+          });
+        } else {
+          alert('Invalid date.');
+        }
+      });
+
+      calendar.render();
+    });
+  </script>
+  <style>
+    body {
+      /* margin: 40px 10px; */
+      padding: 0;
+      font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+      font-size: 14px;
+      padding-bottom: 70px;
+      padding-top: 20px;
+    }
+
+    .demo {
+      height: 40px;
+      line-height: 40px;
+      padding-left: 1em;
+      background: #eee;
+      border-bottom: 1px solid #ddd;
+      font-family: Lucida Grande,Helvetica,Arial,Verdana,sans-serif!important;
+      font-size: 14px!important;
+      color: #000!important;
+      margin-bottom: 1rem;
+    }
+  
+    #calendar {
+      height: 1000px;
+      width: 1000px;
+    }
+
+    .demo-topbar {
+      height: 50px;
+      padding: 1em;
+      padding-left: 465px;
+      margin-top: 1rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .demo-topbar #btn {
+      padding: 10px;
+      margin-top: 15px;
+      border-radius: 8px;
+    }
+    .container{
+      display: flex;
+      flex-direction: row;
+    }
+
+   #form1{
+     margin-left: 30px;
+     padding:0px 50px;
+     padding-top: 20px;
+     border: 1px solid #555;
+     border-radius: 10px;
+   }
+
+   #submit, #btn-remove{
+     padding: 10px 20px;
+     font-size: 1.2rem;
+     display: inline-block;
+     border: none;
+     border-radius: 10px;
+     color: white;
+     background-color: #000;
+     transition: all 0.25s ease-in-out;
+   }
+
+   #submit:hover,
+   #btn-remove:hover {
+     background-color: #222;
+   }
+
+   #form1 label{
+     color:black;
+    font-size: 20px;
+    display: block;
+   }
+
+   #form1 input{
+     width: 200px;
+   }
+
+  </style>
+</head>
+<body>
+  <div class="demo">Fill the form or Click on Events/Dates to see the Dynamic Calendar in Action</div>
+  <div class="container">
+    <div id="calendar"></div>
+
+
+    <div id="form1">
+      <h3>Appointments</h3><br>
+      <label for="title">Name</label>
+      <input type="text" name="title" id="title" placeholder="Nikhil">
+      <br><br>
+
+      <label for="id">ID</label>
+      <input type="text" name="id" id="id" placeholder="001">
+      <br><br>
+
+      <label for="eventDate">Date</label>
+      <input type="text" name="eventDate" id="eventDate" placeholder="YYYY-MM-DD">
+      <br><br>
+
+
+      <label for="start">Start</label>
+      <input type="text" name="start" id="start" placeholder="T00:00:00">
+      <br><br>
+
+      <label for="end">End</label>
+      <input type="text" name="end" id="end" placeholder="T00:00:00">
+      <br><br>
+      <button id="submit" type="button">Submit</button>
+
+    </div>
+
+  </div>
+  <div class="demo-topbar"><button id="btn-remove">Remove Event</button></div>
+</body>
+</html>

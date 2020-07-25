@@ -1,0 +1,1 @@
+All the functionalities of the FullCalendar learnt till now are combined together to create a fully functional static FullCalendar

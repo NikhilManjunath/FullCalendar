@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>List View Demo</title>
+  <link href='../lib/main.css' rel='stylesheet' />
+  <script src='../lib/main.js'></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var calendarEl = document.getElementById('calendar');
+      var calendar = new FullCalendar.Calendar(calendarEl, { //initialzing globals
+        schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
+        initialView: 'listDay',
+        height: 'auto',
+        headerToolbar: {
+          left: 'prev,next today',
+          center: '',
+          right: 'listDay,listWeek'
+        },
+        views: {
+          listDay: { buttonText: 'list day' },
+          listWeek: { buttonText: 'list week' }
+        },
+        events: [
+          {
+            title: "Mission Review",
+            daysOfWeek: [ 4, 5, 6 ],
+          },
+          {
+            title: "Premier League",
+            start: '2020-07-09',
+            end: '2020-07-11'
+          },
+          {
+            title: "Birthday Party",
+            start: '2020-07-09T19:30:00',
+            end: '2020-07-09T21:00:00'
+          },
+          {
+            title: "Workout",
+            start: '2020-07-09T07:00:00',
+            end: '2020-07-09T09:00:00',
+          },
+          {
+            title: "Breakfast",
+            start: '2020-07-10T07:30:00',
+          },
+          {
+            title: "Python",
+            start: '2020-07-11T21:30:00',
+            start: '2020-07-11T23:30:00',
+          },
+          {
+            title: "Github",
+            start: '2020-07-10T23:30:00',
+            url: 'http://www.github.com'
+          },
+          {
+            title: "Html",
+            start: '2020-07-11T07:30:00',
+          },
+          {
+            title: "Jquery",
+            start: '2020-07-11',
+          },
+          {
+            title: "Mustcahe JS",
+            start: '2020-07-11T12:00:00',
+            end: '2020-07-11T14:30:00',
+          },
+          {
+            title: "Full Calendar",
+            start: '2020-07-11T07:30:00',
+            end: '2020-07-11T07:45:00',
+          },
+          {
+            title: "FlexBox",
+            start: '2020-07-11T07:30:00',
+          }
+        ],
+      });
+      calendar.render();
+    });
+  </script>
+  <style>
+    body {
+      /* margin: 40px 10px; */
+      padding: 0;
+      font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+      font-size: 14px;
+    }
+  
+    #calendar {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .demo-topbar {
+      height: 40px;
+      line-height: 40px;
+      padding-left: 1em;
+      background: #eee;
+      border-bottom: 1px solid #ddd;
+      font-family: Lucida Grande,Helvetica,Arial,Verdana,sans-serif!important;
+      font-size: 14px!important;
+      color: #000!important;
+      margin-bottom: 1rem;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="demo-topbar">List Views</div>
+  <div id="calendar"></div>
+</body>
+</html>

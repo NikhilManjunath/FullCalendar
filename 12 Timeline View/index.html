@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timeline View Demo</title>
+  <link href='../lib/main.css' rel='stylesheet' />
+  <script src='../lib/main.js'></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var calendarEl = document.getElementById('calendar');
+      var calendar = new FullCalendar.Calendar(calendarEl, {
+        schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
+        initialView: 'resourceTimelineDay', //when loaded, by default day view of the scheduler
+        headerToolbar: {
+          left: 'prev,next',
+          center: 'title',
+          right: 'resourceTimelineDay,resourceTimelineWeek,resourceTimelineMonth'  //dayview, weekview and monthview
+        },
+        resourceGroupField: 'building',  //Groups resources based on the building
+        // resourceAreaColumns: [   //can add custom columns
+        //   {
+        //     field: 'title',
+        //     headerContent: 'Room'
+        //   },
+        //   {
+        //     field: 'occupancy',
+        //     headerContent: 'Occupancy'
+        //   }
+        // ],
+        resources: [
+          { id: 'a', building: '460 Bryant', title: 'Auditorium A' },
+          { id: 'b', building: '460 Bryant', title: 'Auditorium B' },
+          { id: 'c', building: '460 Bryant', title: 'Auditorium C' },
+          { id: 'd', building: '460 Bryant', title: 'Auditorium D' },
+          { id: 'e', building: '460 Bryant', title: 'Auditorium E' },
+          { id: 'f', building: '460 Bryant', title: 'Auditorium F' },
+          { id: 'g', building: '564 Pacific', title: 'Auditorium G' },
+          { id: 'h', building: '564 Pacific', title: 'Auditorium H' },
+          { id: 'i', building: '564 Pacific', title: 'Auditorium I' },
+          { id: 'j', building: '564 Pacific', title: 'Auditorium J' },
+          { id: 'k', building: '564 Pacific', title: 'Auditorium K' },
+          { id: 'l', building: '564 Pacific', title: 'Auditorium L' },
+          { id: 'm', building: '564 Pacific', title: 'Auditorium M' },
+          { id: 'n', building: '564 Pacific', title: 'Auditorium N' },
+          { id: 'o', building: '101 Main St', title: 'Auditorium O' },
+          { id: 'p', building: '101 Main St', title: 'Auditorium P' },
+          { id: 'q', building: '101 Main St', title: 'Auditorium Q' },
+          { id: 'r', building: '101 Main St', title: 'Auditorium R' },
+          { id: 's', building: '101 Main St', title: 'Auditorium S' },
+          { id: 't', building: '101 Main St', title: 'Auditorium T' },
+          { id: 'u', building: '101 Main St', title: 'Auditorium U' },
+          { id: 'v', building: '101 Main St', title: 'Auditorium V' },
+          { id: 'w', building: '101 Main St', title: 'Auditorium W' },
+          { id: 'x', building: '101 Main St', title: 'Auditorium X' },
+          { id: 'y', building: '101 Main St', title: 'Auditorium Y' },
+          { id: 'z', building: '101 Main St', title: 'Auditorium Z' }
+          ]
+      });
+      calendar.render();
+    });
+  </script>
+  <style>
+    body {
+      /* margin: 40px 10px; */
+      padding: 0;
+      font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+      font-size: 14px;
+    }
+  
+    #calendar {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .demo-topbar {
+      height: 40px;
+      line-height: 40px;
+      padding-left: 1em;
+      background: #eee;
+      border-bottom: 1px solid #ddd;
+      font-family: Lucida Grande,Helvetica,Arial,Verdana,sans-serif!important;
+      font-size: 14px!important;
+      color: #000!important;
+      margin-bottom: 1rem;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="demo-topbar">Various Resource Timeline Views with Resource Grouping</div>
+  <div id="calendar"></div>
+</body>
+</html>

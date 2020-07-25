@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Sources Demo</title>
+  <link href='../lib/main.css' rel='stylesheet' />
+  <script src='../lib/main.js'></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var calendarEl = document.getElementById('calendar');
+      var calendar = new FullCalendar.Calendar(calendarEl, { //initialzing globals
+        schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
+        initialView: 'dayGridMonth',
+        events: [ //as an array
+          {
+            title  : 'Meeting',
+            start  : '2020-07-01'
+          },
+          {
+            title  : 'Travel',
+            start  : '2020-07-05',
+            end    : '2010-07-07'
+          },
+          {
+            title  : 'Lunch Reservation',
+            start  : '2020-07-09T12:30:00',
+            allDay : false // will make the time show
+          },
+        ],
+        // events: 'https://fullcalendar.io/demo-events.json?with-resources=4&single-day',  //as Json feed
+        // events: 'en.usa#holiday@group.v.calendar.google.com',  //from google calendar
+      });
+      calendar.render();
+    });
+  </script>
+  <style>
+    body {
+      /* margin: 40px 10px; */
+      padding: 0;
+      font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+      font-size: 14px;
+    }
+  
+    #calendar {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .demo-topbar {
+      height: 40px;
+      line-height: 40px;
+      padding-left: 1em;
+      background: #eee;
+      border-bottom: 1px solid #ddd;
+      font-family: Lucida Grande,Helvetica,Arial,Verdana,sans-serif!important;
+      font-size: 14px!important;
+      color: #000!important;
+      margin-bottom: 1rem;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="demo-topbar">Events can be added as an array / json feed / function / from Google Calendar</div>
+  <div id="calendar"></div>
+</body>
+</html>

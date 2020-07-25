@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Month View Demo</title>
+  <link href='../lib/main.css' rel='stylesheet' />
+  <script src='../lib/main.js'></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var calendarEl = document.getElementById('calendar');
+      var calendar = new FullCalendar.Calendar(calendarEl, { //initialzing globals
+        schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
+        initialView: 'dayGridMonth',
+        events: [
+          {
+            title: 'Mission Review',
+            start: '2020-07-11T18:00:00',
+            daysOfWeek: [ 6 ],
+            end: '2020-07009T19:30:00'
+          },
+          {
+            title: 'Premier League',
+            start: '2020-07-10',
+            end: '2020-07-13'
+          },
+          {
+            title: 'Lunch',
+            start: '2020-07-03T14:00:00',
+            end: '2020-07-03T15:00:00'
+          },
+          {
+            title: 'Google',
+            start: '2020-07-23',
+            url: 'http://www.google.com'
+          }
+        ],
+        fixedWeekCount: false,   //if true, default calendar will be 6 weeks tall. if false, 4/5 weeks depending on the month
+        // showNonCurrentDates: false  // dates from the previous or next month will not be shown
+      });
+      calendar.render();
+    });
+  </script>
+  <style>
+    body {
+      /* margin: 40px 10px; */
+      padding: 0;
+      font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+      font-size: 14px;
+    }
+  
+    #calendar {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .demo-topbar {
+      height: 40px;
+      line-height: 40px;
+      padding-left: 1em;
+      background: #eee;
+      border-bottom: 1px solid #ddd;
+      font-family: Lucida Grande,Helvetica,Arial,Verdana,sans-serif!important;
+      font-size: 14px!important;
+      color: #000!important;
+      margin-bottom: 1rem;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="demo-topbar">Month View</div>
+  <div id="calendar"></div>
+</body>
+</html>
